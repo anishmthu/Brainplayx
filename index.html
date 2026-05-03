@@ -1,0 +1,1304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Privacy Policy for Brainplayx (Logicly) — Daily Brain Games & Challenges. Privacy-first by design." />
+<title>Privacy Policy · Brainplayx</title>
+
+<!-- ============================================
+     ASSET REFERENCES
+     - Header logo (transparent):   assets/logo.png
+     - Background watermark logo:   assets/bg-logo.png
+     - (Optional) Hero banner:      assets/banner.png
+     ============================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+<style>
+  /* =========================================
+     DESIGN TOKENS
+     ========================================= */
+  :root {
+    /* Dark theme (default) — matches Brainplayx neon identity */
+    --bg-0: #07060d;
+    --bg-1: #0d0b18;
+    --bg-2: #15122a;
+    --surface: rgba(20, 16, 38, 0.55);
+    --surface-strong: rgba(24, 19, 46, 0.85);
+    --border: rgba(255, 255, 255, 0.07);
+    --border-strong: rgba(255, 255, 255, 0.12);
+
+    --text: #ECEAF7;
+    --text-soft: #B6B3CC;
+    --text-mute: #807D9A;
+
+    --brand-violet: #8b5cf6;
+    --brand-pink: #ec4899;
+    --brand-cyan: #22d3ee;
+    --brand-amber: #fbbf24;
+    --brand-green: #22c55e;
+
+    --accent: var(--brand-violet);
+    --accent-2: var(--brand-pink);
+
+    --shadow-glow: 0 0 60px -10px rgba(139, 92, 246, 0.35);
+    --shadow-card: 0 1px 0 rgba(255,255,255,0.04) inset, 0 30px 60px -30px rgba(0,0,0,0.7);
+
+    --radius-sm: 10px;
+    --radius-md: 18px;
+    --radius-lg: 28px;
+
+    --font-display: 'Sora', system-ui, sans-serif;
+    --font-body: 'Manrope', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    --max-w: 1180px;
+  }
+
+  [data-theme="light"] {
+    --bg-0: #f6f5fb;
+    --bg-1: #ffffff;
+    --bg-2: #efeef7;
+    --surface: rgba(255, 255, 255, 0.75);
+    --surface-strong: rgba(255, 255, 255, 0.95);
+    --border: rgba(15, 12, 40, 0.08);
+    --border-strong: rgba(15, 12, 40, 0.14);
+
+    --text: #14102a;
+    --text-soft: #4a4566;
+    --text-mute: #7a7591;
+
+    --shadow-glow: 0 0 60px -10px rgba(139, 92, 246, 0.18);
+    --shadow-card: 0 1px 0 rgba(255,255,255,0.6) inset, 0 30px 60px -30px rgba(20, 16, 50, 0.18);
+  }
+
+  /* =========================================
+     RESET & BASE
+     ========================================= */
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    font-family: var(--font-body);
+    color: var(--text);
+    background: var(--bg-0);
+    line-height: 1.65;
+    font-size: 16px;
+    font-weight: 400;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transition: background 0.4s ease, color 0.4s ease;
+  }
+
+  ::selection { background: var(--brand-violet); color: white; }
+
+  a {
+    color: var(--brand-cyan);
+    text-decoration: none;
+    transition: opacity .2s ease;
+  }
+  a:hover { opacity: .8; text-decoration: underline; }
+
+  img { max-width: 100%; display: block; }
+
+  /* =========================================
+     ATMOSPHERIC BACKGROUND
+     ========================================= */
+  .bg-atmosphere {
+    position: fixed; inset: 0; z-index: -2;
+    background:
+      radial-gradient(900px 600px at 12% -5%, rgba(139, 92, 246, 0.25), transparent 60%),
+      radial-gradient(700px 500px at 95% 8%, rgba(236, 72, 153, 0.18), transparent 60%),
+      radial-gradient(800px 600px at 50% 100%, rgba(34, 211, 238, 0.14), transparent 60%),
+      var(--bg-0);
+    transition: background 0.4s ease;
+  }
+  [data-theme="light"] .bg-atmosphere {
+    background:
+      radial-gradient(900px 600px at 12% -5%, rgba(139, 92, 246, 0.12), transparent 60%),
+      radial-gradient(700px 500px at 95% 8%, rgba(236, 72, 153, 0.08), transparent 60%),
+      radial-gradient(800px 600px at 50% 100%, rgba(34, 211, 238, 0.08), transparent 60%),
+      var(--bg-0);
+  }
+
+  /* Watermark background logo */
+  .bg-watermark {
+    position: fixed;
+    z-index: -1;
+    top: 50%; left: 50%;
+    width: min(90vw, 900px);
+    height: auto;
+    transform: translate(-50%, -50%);
+    opacity: 0.035;
+    pointer-events: none;
+    filter: blur(1px);
+  }
+  [data-theme="light"] .bg-watermark { opacity: 0.05; }
+
+  /* Subtle grain */
+  .bg-atmosphere::after {
+    content: "";
+    position: absolute; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E");
+    opacity: 0.04;
+    mix-blend-mode: overlay;
+    pointer-events: none;
+  }
+
+  /* =========================================
+     SCROLL PROGRESS
+     ========================================= */
+  .scroll-progress {
+    position: fixed;
+    top: 0; left: 0;
+    height: 3px;
+    width: 0%;
+    background: linear-gradient(90deg, var(--brand-violet), var(--brand-pink), var(--brand-amber), var(--brand-cyan));
+    z-index: 100;
+    box-shadow: 0 0 12px rgba(139, 92, 246, 0.6);
+    transition: width 0.05s linear;
+  }
+
+  /* =========================================
+     HEADER / NAV
+     ========================================= */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    backdrop-filter: blur(18px) saturate(140%);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    background: linear-gradient(to bottom, rgba(7, 6, 13, 0.7), rgba(7, 6, 13, 0.4));
+    border-bottom: 1px solid var(--border);
+    transition: background 0.4s ease;
+  }
+  [data-theme="light"] .nav {
+    background: linear-gradient(to bottom, rgba(246, 245, 251, 0.85), rgba(246, 245, 251, 0.6));
+  }
+
+  .nav-inner {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 16px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: var(--text);
+  }
+  .brand:hover { opacity: 1; text-decoration: none; }
+
+  .brand-logo {
+    width: 44px;
+    height: 44px;
+    border-radius: 11px;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 16px rgba(139, 92, 246, 0.4));
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+  }
+  .brand-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 19px;
+    letter-spacing: -0.01em;
+  }
+  .brand-name .x {
+    background: linear-gradient(135deg, var(--brand-violet), var(--brand-pink));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  .brand-tag {
+    font-size: 11px;
+    color: var(--text-mute);
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .icon-btn {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    cursor: pointer;
+    transition: all .2s ease;
+  }
+  .icon-btn:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-1px);
+  }
+  .icon-btn svg { width: 18px; height: 18px; }
+  .icon-btn .moon { display: block; }
+  .icon-btn .sun { display: none; }
+  [data-theme="light"] .icon-btn .moon { display: none; }
+  [data-theme="light"] .icon-btn .sun { display: block; }
+
+  /* =========================================
+     LAYOUT
+     ========================================= */
+  .container {
+    max-width: var(--max-w);
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* =========================================
+     HERO
+     ========================================= */
+  .hero {
+    position: relative;
+    padding: 80px 0 48px;
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border-strong);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-soft);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    backdrop-filter: blur(10px);
+  }
+  .hero-badge .dot {
+    width: 6px; height: 6px;
+    border-radius: 999px;
+    background: var(--brand-green);
+    box-shadow: 0 0 10px var(--brand-green);
+    animation: pulse 2s ease-in-out infinite;
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .4; }
+  }
+
+  .hero h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(40px, 7vw, 76px);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    margin: 0 0 20px;
+  }
+  .hero h1 .accent {
+    background: linear-gradient(135deg, #a78bfa 0%, #ec4899 50%, #fbbf24 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradientShift 8s ease infinite;
+  }
+  @keyframes gradientShift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  .hero-sub {
+    max-width: 620px;
+    margin: 0 auto 32px;
+    color: var(--text-soft);
+    font-size: clamp(15px, 1.6vw, 17px);
+    line-height: 1.6;
+  }
+
+  .hero-meta {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 8px;
+  }
+  .meta-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 13px;
+    color: var(--text-soft);
+    backdrop-filter: blur(8px);
+  }
+  .meta-pill svg { width: 14px; height: 14px; opacity: .7; }
+  .meta-pill .label { color: var(--text-mute); }
+  .meta-pill .value { color: var(--text); font-weight: 600; }
+
+  /* Floating decorative glyphs */
+  .hero-glyphs {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+  .glyph {
+    position: absolute;
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--text-mute);
+    opacity: 0.35;
+    user-select: none;
+  }
+  .glyph.g1 { top: 15%; left: 6%; transform: rotate(-12deg); animation: float 9s ease-in-out infinite; }
+  .glyph.g2 { top: 28%; right: 8%; transform: rotate(8deg); animation: float 11s ease-in-out infinite reverse; }
+  .glyph.g3 { bottom: 18%; left: 10%; transform: rotate(5deg); animation: float 13s ease-in-out infinite; }
+  .glyph.g4 { bottom: 28%; right: 12%; transform: rotate(-6deg); animation: float 10s ease-in-out infinite reverse; }
+  @keyframes float {
+    0%, 100% { translate: 0 0; }
+    50% { translate: 0 -14px; }
+  }
+
+  /* =========================================
+     CONTENT GRID (TOC + ARTICLE)
+     ========================================= */
+  .layout {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 56px;
+    padding: 24px 0 80px;
+    align-items: start;
+  }
+
+  /* Table of Contents */
+  .toc {
+    position: sticky;
+    top: 96px;
+    align-self: start;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 22px 22px 18px;
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: var(--shadow-card);
+  }
+  .toc-title {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--text-mute);
+    margin: 0 0 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .toc-title::before {
+    content: "";
+    width: 16px; height: 1px;
+    background: linear-gradient(90deg, var(--brand-violet), transparent);
+  }
+  .toc ol {
+    list-style: none;
+    padding: 0; margin: 0;
+    counter-reset: toc;
+    max-height: calc(100vh - 220px);
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--border-strong) transparent;
+  }
+  .toc ol::-webkit-scrollbar { width: 4px; }
+  .toc ol::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+  .toc li {
+    counter-increment: toc;
+    margin-bottom: 2px;
+  }
+  .toc a {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 8px;
+    color: var(--text-soft);
+    font-size: 13.5px;
+    font-weight: 500;
+    line-height: 1.4;
+    transition: all .15s ease;
+    border-left: 2px solid transparent;
+  }
+  .toc a::before {
+    content: counter(toc, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--text-mute);
+    flex-shrink: 0;
+  }
+  .toc a:hover {
+    color: var(--text);
+    background: rgba(255,255,255,0.03);
+    text-decoration: none;
+  }
+  .toc a.active {
+    color: var(--text);
+    background: linear-gradient(90deg, rgba(139, 92, 246, 0.12), transparent);
+    border-left-color: var(--brand-violet);
+  }
+  .toc a.active::before { color: var(--brand-violet); }
+
+  /* Article */
+  .article {
+    background: var(--surface-strong);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 56px clamp(28px, 5vw, 64px);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: var(--shadow-card);
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Decorative top accent on article */
+  .article::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--brand-violet), var(--brand-pink), var(--brand-amber), transparent);
+    opacity: 0.6;
+  }
+
+  .article section {
+    scroll-margin-top: 96px;
+    padding: 32px 0;
+    border-bottom: 1px dashed var(--border);
+  }
+  .article section:last-of-type { border-bottom: 0; }
+  .article section:first-of-type { padding-top: 8px; }
+
+  .article h2 {
+    font-family: var(--font-display);
+    font-size: clamp(22px, 2.6vw, 28px);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin: 0 0 16px;
+    color: var(--text);
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+  }
+  .article h2 .num {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--brand-violet);
+    letter-spacing: 0;
+  }
+
+  .article h3 {
+    font-family: var(--font-display);
+    font-size: 17px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    margin: 26px 0 12px;
+    color: var(--text);
+  }
+
+  .article p {
+    margin: 0 0 14px;
+    color: var(--text-soft);
+    font-size: 15.5px;
+    line-height: 1.75;
+  }
+  .article p strong, .article li strong { color: var(--text); font-weight: 600; }
+
+  .article ul {
+    padding-left: 0;
+    list-style: none;
+    margin: 0 0 18px;
+  }
+  .article ul li {
+    position: relative;
+    padding: 6px 0 6px 26px;
+    color: var(--text-soft);
+    font-size: 15.5px;
+    line-height: 1.7;
+  }
+  .article ul li::before {
+    content: "";
+    position: absolute;
+    left: 6px; top: 16px;
+    width: 6px; height: 6px;
+    border-radius: 2px;
+    background: linear-gradient(135deg, var(--brand-violet), var(--brand-pink));
+  }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto;
+    margin: 18px 0 24px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    background: rgba(0,0,0,0.15);
+  }
+  [data-theme="light"] .table-wrap { background: rgba(255,255,255,0.5); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14.5px;
+  }
+  thead th {
+    background: rgba(139, 92, 246, 0.08);
+    color: var(--text);
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-align: left;
+    padding: 14px 18px;
+    font-size: 13px;
+    letter-spacing: 0.02em;
+    border-bottom: 1px solid var(--border-strong);
+  }
+  tbody td {
+    padding: 14px 18px;
+    color: var(--text-soft);
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  tbody tr:last-child td { border-bottom: 0; }
+  tbody tr:hover td { background: rgba(255,255,255,0.02); }
+
+  /* Callouts */
+  .callout {
+    margin: 18px 0;
+    padding: 16px 18px;
+    border-radius: var(--radius-sm);
+    background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(236, 72, 153, 0.04));
+    border: 1px solid rgba(139, 92, 246, 0.25);
+    border-left: 3px solid var(--brand-violet);
+    color: var(--text-soft);
+    font-size: 14.5px;
+    line-height: 1.65;
+  }
+  .callout strong { color: var(--text); }
+
+  .callout.warn {
+    background: linear-gradient(135deg, rgba(251, 191, 36, 0.08), rgba(236, 72, 153, 0.04));
+    border-color: rgba(251, 191, 36, 0.3);
+    border-left-color: var(--brand-amber);
+  }
+  .callout.good {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.08), rgba(34, 211, 238, 0.04));
+    border-color: rgba(34, 197, 94, 0.25);
+    border-left-color: var(--brand-green);
+  }
+
+  code, .kbd {
+    font-family: var(--font-mono);
+    font-size: 0.88em;
+    background: rgba(139, 92, 246, 0.12);
+    color: var(--text);
+    padding: 2px 7px;
+    border-radius: 5px;
+    border: 1px solid rgba(139, 92, 246, 0.2);
+  }
+
+  /* Privacy highlights row */
+  .highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 14px;
+    margin: 6px 0 10px;
+  }
+  .h-card {
+    padding: 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    transition: all .25s ease;
+  }
+  .h-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--border-strong);
+  }
+  .h-card .ico {
+    width: 36px; height: 36px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center; justify-content: center;
+    margin-bottom: 10px;
+  }
+  .h-card .ico svg { width: 18px; height: 18px; color: white; }
+  .h-card.v .ico { background: linear-gradient(135deg, #8b5cf6, #6366f1); }
+  .h-card.p .ico { background: linear-gradient(135deg, #ec4899, #f43f5e); }
+  .h-card.c .ico { background: linear-gradient(135deg, #22d3ee, #0ea5e9); }
+  .h-card.a .ico { background: linear-gradient(135deg, #fbbf24, #f59e0b); }
+  .h-card .t {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--text);
+    margin: 0 0 4px;
+  }
+  .h-card .d {
+    font-size: 12.5px;
+    color: var(--text-mute);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  /* =========================================
+     FOOTER
+     ========================================= */
+  .footer {
+    padding: 60px 0 40px;
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+    position: relative;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 36px;
+  }
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    max-width: 360px;
+  }
+  .footer-brand .lockup {
+    display: flex; align-items: center; gap: 12px;
+  }
+  .footer-brand .lockup img {
+    width: 38px; height: 38px;
+    object-fit: contain;
+    border-radius: 9px;
+  }
+  .footer-brand .lockup .name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 17px;
+  }
+  .footer-brand p {
+    color: var(--text-mute);
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .foot-col h4 {
+    font-family: var(--font-display);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-mute);
+    margin: 0 0 14px;
+  }
+  .foot-col a, .foot-col span {
+    display: block;
+    color: var(--text-soft);
+    font-size: 14px;
+    text-decoration: none;
+    padding: 4px 0;
+    transition: color .15s ease;
+  }
+  .foot-col a:hover { color: var(--text); }
+
+  .foot-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding-top: 24px;
+    border-top: 1px solid var(--border);
+    color: var(--text-mute);
+    font-size: 12.5px;
+  }
+  .foot-bottom .badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-mute);
+  }
+
+  /* =========================================
+     ENTRY ANIMATIONS
+     ========================================= */
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: reveal .9s cubic-bezier(.2, .8, .2, 1) forwards;
+  }
+  .reveal.d1 { animation-delay: .08s; }
+  .reveal.d2 { animation-delay: .16s; }
+  .reveal.d3 { animation-delay: .24s; }
+  .reveal.d4 { animation-delay: .32s; }
+  @keyframes reveal {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* =========================================
+     RESPONSIVE
+     ========================================= */
+  @media (max-width: 980px) {
+    .layout {
+      grid-template-columns: 1fr;
+      gap: 28px;
+    }
+    .toc {
+      position: relative;
+      top: 0;
+      max-height: none;
+    }
+    .toc ol { max-height: 320px; }
+
+    .footer-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    .footer-brand { grid-column: 1 / -1; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-inner { padding: 12px 18px; }
+    .container { padding: 0 18px; }
+    .brand-tag { display: none; }
+    .hero { padding: 56px 0 32px; }
+    .article { padding: 36px 22px; border-radius: var(--radius-md); }
+    .article section { padding: 24px 0; }
+    .footer-grid { grid-template-columns: 1fr; gap: 28px; }
+    .foot-bottom { flex-direction: column; align-items: flex-start; }
+    .glyph { display: none; }
+    thead th, tbody td { padding: 10px 12px; font-size: 13px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+  <!-- Atmospheric layers -->
+  <div class="bg-atmosphere" aria-hidden="true"></div>
+  <!-- INSERT BACKGROUND LOGO HERE -->
+  <img class="bg-watermark" src="assets/bg-logo.png" alt="" aria-hidden="true" />
+
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress" aria-hidden="true"></div>
+
+  <!-- ========== HEADER ========== -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="#top" class="brand">
+        <!-- INSERT TRANSPARENT LOGO HERE -->
+        <img src="assets/logo.png" alt="Brainplayx logo" class="brand-logo" />
+        <div class="brand-text">
+          <div class="brand-name">Brainplay<span class="x">x</span></div>
+          <div class="brand-tag">Daily Brain Games</div>
+        </div>
+      </a>
+
+      <div class="nav-actions">
+        <button class="icon-btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">
+          <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="top">
+    <!-- ========== HERO ========== -->
+    <section class="hero container">
+      <div class="hero-glyphs" aria-hidden="true">
+        <span class="glyph g1">{ }</span>
+        <span class="glyph g2">&lt;/&gt;</span>
+        <span class="glyph g3">01 · 10</span>
+        <span class="glyph g4">∎</span>
+      </div>
+
+      <span class="hero-badge reveal"><span class="dot"></span> Privacy-first by design</span>
+      <h1 class="reveal d1">Privacy <span class="accent">Policy</span></h1>
+      <p class="hero-sub reveal d2">
+        How Brainplayx (Logicly) handles your data — written in plain language. The short version: the app works fully offline, no account needed, and we collect nothing unless you choose to sign in.
+      </p>
+
+      <div class="hero-meta reveal d3">
+        <span class="meta-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+          <span class="label">Last updated</span>
+          <span class="value">May 3, 2026</span>
+        </span>
+        <span class="meta-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+          <span class="label">Effective</span>
+          <span class="value">May 3, 2026</span>
+        </span>
+        <span class="meta-pill">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7l9 6 9-6M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M3 7l2-2h14l2 2"/></svg>
+          <span class="label">Contact</span>
+          <span class="value">ljake4831@gmail.com</span>
+        </span>
+      </div>
+    </section>
+
+    <!-- ========== CONTENT LAYOUT ========== -->
+    <div class="container">
+      <div class="layout">
+
+        <!-- TABLE OF CONTENTS -->
+        <aside class="toc reveal d2" aria-label="Table of contents">
+          <h2 class="toc-title">Contents</h2>
+          <ol id="tocList">
+            <li><a href="#introduction">Introduction</a></li>
+            <li><a href="#approach">Privacy-first approach</a></li>
+            <li><a href="#information">Information we collect</a></li>
+            <li><a href="#use">How we use your information</a></li>
+            <li><a href="#third-parties">Third-party services</a></li>
+            <li><a href="#retention">Data retention</a></li>
+            <li><a href="#security">Data security</a></li>
+            <li><a href="#rights">Your rights and choices</a></li>
+            <li><a href="#children">Children&rsquo;s privacy (COPPA)</a></li>
+            <li><a href="#gdpr">EEA users (GDPR)</a></li>
+            <li><a href="#ccpa">California (CCPA / CPRA)</a></li>
+            <li><a href="#changes">Changes to this policy</a></li>
+            <li><a href="#contact">Contact us</a></li>
+          </ol>
+        </aside>
+
+        <!-- ARTICLE -->
+        <article class="article reveal d3">
+
+          <!-- Highlights row -->
+          <div class="highlights" style="padding: 4px 0 8px;">
+            <div class="h-card v">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
+              <p class="t">No tracking</p>
+              <p class="d">No analytics SDKs, no ad IDs, no behavioral profiling.</p>
+            </div>
+            <div class="h-card p">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M4.93 4.93l14.14 14.14"/></svg></div>
+              <p class="t">No ads</p>
+              <p class="d">Zero advertising SDKs. Zero ad networks. Ever.</p>
+            </div>
+            <div class="h-card c">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12l5 5L20 7"/></svg></div>
+              <p class="t">Account optional</p>
+              <p class="d">Play fully offline — sign in only if you want cloud sync.</p>
+            </div>
+            <div class="h-card a">
+              <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg></div>
+              <p class="t">You&rsquo;re in control</p>
+              <p class="d">Delete your data anytime. One email — done in 30 days.</p>
+            </div>
+          </div>
+
+          <!-- 1 -->
+          <section id="introduction">
+            <h2><span class="num">01</span> Introduction</h2>
+            <p>This Privacy Policy explains how <strong>Logicly</strong> (&ldquo;we,&rdquo; &ldquo;our,&rdquo; or &ldquo;us&rdquo;) collects, uses, stores, and protects your information when you use our mobile and web application (&ldquo;the App&rdquo;). By using the App, you agree to the practices described in this policy.</p>
+            <p>If you do not agree with this policy, please do not use the App.</p>
+          </section>
+
+          <!-- 2 -->
+          <section id="approach">
+            <h2><span class="num">02</span> Overview: Our Privacy-First Approach</h2>
+            <p>The App is designed to work <strong>fully offline without any account</strong>. You can play all puzzle games, track progress locally, and use all core features without ever creating an account or sharing any personal data with us.</p>
+            <div class="callout good">
+              <strong>Account / cloud sync is entirely optional.</strong> We only collect and store personal data in the cloud if you choose to sign in.
+            </div>
+          </section>
+
+          <!-- 3 -->
+          <section id="information">
+            <h2><span class="num">03</span> Information We Collect</h2>
+
+            <h3>3.1 Data Stored Locally on Your Device (No Account Required)</h3>
+            <p>When you use the App without signing in, the following data is stored <strong>only on your device</strong> using local storage (SharedPreferences). This data never leaves your device.</p>
+
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Category</th><th>Data Stored</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Game Progress</strong></td><td>Highest unlocked level, completed level IDs per game</td></tr>
+                  <tr><td><strong>Lives / Energy</strong></td><td>Current life count, life regeneration timestamp</td></tr>
+                  <tr><td><strong>Daily Challenges</strong></td><td>Last completed date, current streak, best streak, total completed, best time</td></tr>
+                  <tr><td><strong>Game Statistics</strong></td><td>Play counts, wins, best scores, total scores, playtime, win streaks per game</td></tr>
+                  <tr><td><strong>Achievements</strong></td><td>Unlocked achievement IDs</td></tr>
+                  <tr><td><strong>Preferences</strong></td><td>Theme (dark/light mode), selected language</td></tr>
+                  <tr><td><strong>Onboarding</strong></td><td>Whether you have completed the onboarding flow</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>We do not transmit this data anywhere. It stays on your device.</p>
+
+            <h3>3.2 Data Collected When You Sign In (Optional &mdash; Google Sign-In)</h3>
+            <p>If you choose to sign in using Google, we collect the following information from your Google account:</p>
+            <ul>
+              <li><strong>Display Name</strong> &mdash; your Google account name</li>
+              <li><strong>Email Address</strong> &mdash; your Google account email</li>
+              <li><strong>Profile Photo URL</strong> &mdash; a link to your Google profile picture</li>
+              <li><strong>Firebase User ID (UID)</strong> &mdash; a unique identifier assigned by Firebase Authentication</li>
+            </ul>
+            <p>We use this information to:</p>
+            <ul>
+              <li>Identify your account</li>
+              <li>Sync your game progress to the cloud so you can restore it on other devices</li>
+              <li>Display your name and photo on public leaderboards (only if your score qualifies)</li>
+            </ul>
+            <div class="callout">
+              <strong>We never access your Google password, contacts, calendar, or any other Google data.</strong>
+            </div>
+
+            <h3>3.3 Data Stored in the Cloud (Only for Signed-In Users)</h3>
+            <p>When you are signed in, your data is stored in Google Firebase Firestore under your Firebase UID. The data stored mirrors the local data described in Section 3.1, plus:</p>
+            <ul>
+              <li><strong>Display Name, Email, Photo URL</strong> (from your Google account)</li>
+              <li><strong>Last Login Timestamp</strong></li>
+              <li><strong>Lives count and regeneration timestamp</strong> (for cross-device sync)</li>
+              <li><strong>Daily challenge progress</strong></li>
+              <li><strong>Per-game statistics and progress</strong></li>
+            </ul>
+
+            <h3>3.4 Public Leaderboard Data</h3>
+            <p>If you are signed in and achieve a score on the weekly leaderboard, the following data becomes <strong>publicly visible</strong> to all users of the App:</p>
+            <ul>
+              <li>Your <strong>Display Name</strong></li>
+              <li>Your <strong>Profile Photo</strong></li>
+              <li>Your <strong>score or win count</strong> for the relevant game</li>
+            </ul>
+            <p>Leaderboards reset every Monday (weekly). Historical leaderboard data from previous weeks is not retained after the reset.</p>
+            <p>If you do not want to appear on leaderboards, you can either:</p>
+            <ul>
+              <li>Play without signing in, or</li>
+              <li>Avoid the leaderboard-enabled games while signed in (Tetris, 2048, Sudoku, Zip, CrossClimb, Pinpoint, Queens, Tango, Tic Tac Toe, Ludo, Chess)</li>
+            </ul>
+
+            <h3>3.5 Data We Do NOT Collect</h3>
+            <p>We explicitly do <strong>not</strong> collect:</p>
+            <ul>
+              <li>Location data</li>
+              <li>Camera or microphone data</li>
+              <li>Contacts or address book</li>
+              <li>Device identifiers (IDFA, GAID, etc.)</li>
+              <li>IP addresses (beyond what Firebase/Google infrastructure logs internally)</li>
+              <li>Behavioral analytics or usage event tracking</li>
+              <li>Advertising identifiers</li>
+            </ul>
+            <div class="callout warn">
+              Firebase Analytics is <strong>disabled</strong> in this App. We have no third-party analytics SDKs.
+            </div>
+          </section>
+
+          <!-- 4 -->
+          <section id="use">
+            <h2><span class="num">04</span> How We Use Your Information</h2>
+            <p>We use the data we collect only for:</p>
+            <ul>
+              <li><strong>Providing the App&rsquo;s features</strong> &mdash; syncing progress, maintaining the lives system, and displaying leaderboards.</li>
+              <li><strong>Displaying your profile</strong> &mdash; your name and photo are shown in the App when you are signed in and on public leaderboards.</li>
+              <li><strong>Improving data consistency</strong> &mdash; when you sign in after playing offline, your local progress is merged with your cloud data (always taking the higher value so you never lose progress).</li>
+            </ul>
+            <p>We do <strong>not</strong> use your data for:</p>
+            <ul>
+              <li>Advertising or marketing</li>
+              <li>Selling to third parties</li>
+              <li>Profiling or behavioral targeting</li>
+              <li>Any purpose other than operating the App</li>
+            </ul>
+          </section>
+
+          <!-- 5 -->
+          <section id="third-parties">
+            <h2><span class="num">05</span> Third-Party Services</h2>
+            <p>The App uses the following third-party services. Each has its own privacy policy.</p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr><th>Service</th><th>Purpose</th><th>Privacy Policy</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><strong>Firebase Authentication</strong> (Google)</td><td>Google Sign-In</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com</a></td></tr>
+                  <tr><td><strong>Cloud Firestore</strong> (Google)</td><td>Cloud data storage</td><td><a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">firebase.google.com</a></td></tr>
+                  <tr><td><strong>Google Sign-In</strong></td><td>OAuth authentication</td><td><a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com</a></td></tr>
+                  <tr><td><strong>Google Fonts</strong></td><td>Custom font loading</td><td><a href="https://developers.google.com/fonts/faq/privacy" target="_blank" rel="noopener">developers.google.com</a></td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>Data stored in Firebase is hosted on Google Cloud infrastructure. Google&rsquo;s data processing agreements and security standards apply. For more information, see <a href="https://firebase.google.com/support/privacy" target="_blank" rel="noopener">Firebase Privacy and Security</a>.</p>
+            <div class="callout good"><strong>No advertising SDKs</strong> are integrated. Ads are disabled.</div>
+          </section>
+
+          <!-- 6 -->
+          <section id="retention">
+            <h2><span class="num">06</span> Data Retention</h2>
+            <div class="table-wrap">
+              <table>
+                <thead><tr><th>Data Type</th><th>Retention</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Local device data</strong> (no account)</td><td>Until you uninstall the App or clear app data</td></tr>
+                  <tr><td><strong>Cloud account data</strong> (signed-in)</td><td>Until you request deletion (see Section 8)</td></tr>
+                  <tr><td><strong>Weekly leaderboard entries</strong></td><td>Deleted every Monday on leaderboard reset</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <p>We do not retain leaderboard history after weekly resets.</p>
+          </section>
+
+          <!-- 7 -->
+          <section id="security">
+            <h2><span class="num">07</span> Data Security</h2>
+            <p>We take reasonable steps to protect your data:</p>
+            <ul>
+              <li>All communication with Firebase uses <strong>HTTPS/TLS encryption in transit</strong>.</li>
+              <li>Firebase Firestore rules restrict access so only <strong>your own UID</strong> can read or write your personal data (leaderboard scores are publicly readable by design).</li>
+              <li>We do not store passwords &mdash; authentication is handled entirely by Google OAuth.</li>
+              <li>We do not have access to your Google account credentials.</li>
+            </ul>
+            <p>No system is 100% secure. While we strive to protect your data, we cannot guarantee absolute security.</p>
+          </section>
+
+          <!-- 8 -->
+          <section id="rights">
+            <h2><span class="num">08</span> Your Rights and Choices</h2>
+            <p>Regardless of where you live, you have the following rights:</p>
+
+            <h3>8.1 Access</h3>
+            <p>You can view all data stored about you by reviewing your in-app profile and game statistics.</p>
+
+            <h3>8.2 Deletion</h3>
+            <p>To delete your account and all associated cloud data:</p>
+            <ul>
+              <li>Sign out of the App, then contact us at <a href="mailto:ljake4831@gmail.com?subject=Account%20Deletion%20Request">ljake4831@gmail.com</a> with the subject line &ldquo;Account Deletion Request&rdquo; and include the email address linked to your Google account.</li>
+              <li>We will delete your Firestore data (all records under your UID) within <strong>30 days</strong>.</li>
+            </ul>
+            <p>Uninstalling the App removes all local data immediately.</p>
+
+            <h3>8.3 Data Portability</h3>
+            <p>To request a copy of your cloud data, contact us at <a href="mailto:ljake4831@gmail.com">ljake4831@gmail.com</a>.</p>
+
+            <h3>8.4 Opt Out of Cloud Sync</h3>
+            <p>Simply do not sign in. The App is fully functional without an account.</p>
+
+            <h3>8.5 Remove Yourself from Leaderboards</h3>
+            <p>Sign out of the App. Your leaderboard entries will be removed at the next weekly reset (every Monday). For immediate removal, contact us at <a href="mailto:ljake4831@gmail.com">ljake4831@gmail.com</a>.</p>
+          </section>
+
+          <!-- 9 -->
+          <section id="children">
+            <h2><span class="num">09</span> Children&rsquo;s Privacy (COPPA)</h2>
+            <p>The App is a puzzle game that may appeal to users of all ages. We do not knowingly collect personal information from children under the age of 13 (or the applicable age of digital consent in your region).</p>
+            <ul>
+              <li><strong>Without signing in:</strong> No personal data is collected from any user, including children.</li>
+              <li><strong>Google Sign-In:</strong> Google&rsquo;s terms of service require users to meet minimum age requirements to create a Google account. By signing in with Google, you represent that you meet those requirements.</li>
+            </ul>
+            <p>If you are a parent or guardian and believe your child has signed in and provided personal data without your consent, please contact us at <a href="mailto:ljake4831@gmail.com">ljake4831@gmail.com</a> and we will delete the account data promptly.</p>
+          </section>
+
+          <!-- 10 -->
+          <section id="gdpr">
+            <h2><span class="num">10</span> Users in the European Economic Area (GDPR)</h2>
+            <p>If you are located in the EEA, UK, or Switzerland, the following applies:</p>
+
+            <h3>Legal Basis for Processing</h3>
+            <ul>
+              <li><strong>Consent</strong> &mdash; you consent to cloud sync by choosing to sign in.</li>
+              <li><strong>Legitimate Interests</strong> &mdash; providing and improving the App&rsquo;s core functionality.</li>
+            </ul>
+
+            <h3>Your GDPR Rights</h3>
+            <ul>
+              <li>Right to access your personal data</li>
+              <li>Right to rectification (correct inaccurate data)</li>
+              <li>Right to erasure (&ldquo;right to be forgotten&rdquo;)</li>
+              <li>Right to restrict processing</li>
+              <li>Right to data portability</li>
+              <li>Right to object to processing</li>
+              <li>Right to withdraw consent at any time (by signing out)</li>
+            </ul>
+            <p>To exercise any of these rights, contact us at <a href="mailto:ljake4831@gmail.com">ljake4831@gmail.com</a>.</p>
+            <p>You also have the right to lodge a complaint with your local data protection authority.</p>
+            <div class="callout">
+              <strong>Data Transfers:</strong> Your data is stored on Google Cloud servers. Google participates in frameworks that provide adequate protection for data transferred outside the EEA (including Standard Contractual Clauses).
+            </div>
+          </section>
+
+          <!-- 11 -->
+          <section id="ccpa">
+            <h2><span class="num">11</span> Users in California (CCPA / CPRA)</h2>
+            <p>If you are a California resident:</p>
+            <ul>
+              <li>We do <strong>not</strong> sell your personal information.</li>
+              <li>We do <strong>not</strong> share your personal information for cross-context behavioral advertising.</li>
+              <li>You have the right to know what personal information we collect, use, and disclose.</li>
+              <li>You have the right to request deletion of your personal information.</li>
+              <li>You have the right to non-discrimination for exercising your privacy rights.</li>
+            </ul>
+            <p>To exercise these rights, contact us at <a href="mailto:ljake4831@gmail.com">ljake4831@gmail.com</a>.</p>
+          </section>
+
+          <!-- 12 -->
+          <section id="changes">
+            <h2><span class="num">12</span> Changes to This Privacy Policy</h2>
+            <p>We may update this Privacy Policy from time to time. When we do:</p>
+            <ul>
+              <li>We will update the &ldquo;Last Updated&rdquo; date at the top of this document.</li>
+              <li>Significant changes will be communicated through an in-app notice.</li>
+            </ul>
+            <p>Continued use of the App after changes take effect constitutes your acceptance of the revised policy.</p>
+          </section>
+
+          <!-- 13 -->
+          <section id="contact">
+            <h2><span class="num">13</span> Contact Us</h2>
+            <p>If you have any questions, concerns, or requests regarding this Privacy Policy or your personal data, please contact us:</p>
+            <div class="callout">
+              <p style="margin: 0 0 6px;"><strong>Email:</strong> <a href="mailto:ljake4831@gmail.com">ljake4831@gmail.com</a></p>
+              <p style="margin: 0 0 6px;"><strong>Developer:</strong> Side Hustle Hub</p>
+              <p style="margin: 0;"><strong>App:</strong> Logicly (Brainplayx)</p>
+            </div>
+            <p>We aim to respond to all privacy-related inquiries within <strong>14 business days</strong>.</p>
+            <p style="margin-top: 24px; font-size: 13px; color: var(--text-mute); font-style: italic;">This Privacy Policy was written based on the actual data practices of the App as implemented. If publishing to the Google Play Store or Apple App Store, you will also need to complete their respective privacy questionnaires/nutrition labels using the information in this document.</p>
+          </section>
+
+        </article>
+      </div>
+    </div>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="lockup">
+            <img src="assets/logo.png" alt="Brainplayx" />
+            <span class="name">Brainplay<span style="background:linear-gradient(135deg,var(--brand-violet),var(--brand-pink));-webkit-background-clip:text;background-clip:text;color:transparent;">x</span></span>
+          </div>
+          <p>Daily brain games &amp; challenges. Train your logic, memory, and focus with 7+ unique puzzles. Built privacy-first &mdash; play offline, sync optional.</p>
+        </div>
+
+        <div class="foot-col">
+          <h4>App</h4>
+          <a href="#top">Home</a>
+          <a href="#approach">Privacy approach</a>
+          <a href="#rights">Your rights</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="foot-col">
+          <h4>Reach us</h4>
+          <a href="mailto:ljake4831@gmail.com">ljake4831@gmail.com</a>
+          <span>Side Hustle Hub</span>
+          <span>Response within 14 business days</span>
+        </div>
+      </div>
+
+      <div class="foot-bottom">
+        <span>&copy; <span id="year">2026</span> Side Hustle Hub. All rights reserved.</span>
+        <span class="badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          v 1.0 · privacy-first build
+        </span>
+      </div>
+    </footer>
+
+  </main>
+
+  <script>
+    // ============================================
+    // THEME TOGGLE (persists in memory only — no localStorage)
+    // ============================================
+    const themeBtn = document.getElementById('themeToggle');
+    let currentTheme = 'dark';
+    themeBtn.addEventListener('click', () => {
+      currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      if (currentTheme === 'light') {
+        document.documentElement.setAttribute('data-theme', 'light');
+      } else {
+        document.documentElement.removeAttribute('data-theme');
+      }
+    });
+
+    // ============================================
+    // SCROLL PROGRESS BAR
+    // ============================================
+    const progress = document.getElementById('scrollProgress');
+    function updateProgress() {
+      const h = document.documentElement;
+      const scrolled = h.scrollTop;
+      const max = h.scrollHeight - h.clientHeight;
+      const pct = max > 0 ? (scrolled / max) * 100 : 0;
+      progress.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', updateProgress, { passive: true });
+    updateProgress();
+
+    // ============================================
+    // ACTIVE TOC SECTION HIGHLIGHTING
+    // ============================================
+    const tocLinks = document.querySelectorAll('#tocList a');
+    const sections = Array.from(tocLinks).map(a => {
+      const id = a.getAttribute('href').slice(1);
+      return { link: a, section: document.getElementById(id) };
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          tocLinks.forEach(l => l.classList.remove('active'));
+          const match = sections.find(s => s.section.id === id);
+          if (match) match.link.classList.add('active');
+        }
+      });
+    }, {
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    });
+
+    sections.forEach(s => { if (s.section) observer.observe(s.section); });
+
+    // ============================================
+    // FOOTER YEAR
+    // ============================================
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
